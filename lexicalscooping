@@ -1,0 +1,8 @@
+Normally when discussed in the context of R lexical scoping means that free variables in a function (i.e. variables that are used in a function but not defined in the function) are looked up in the parent environment of the function, as opposed to the environment of the caller (also referred to as the parent frame) but there are no free variables in with.default so the example does not illustrate a violation of lexical scoping in that sense.
+
+For example, this illustrates lexical scoping:
+
+x <- 1
+f <- function() x
+g <- function() { x <- 0; f() }
+g() # 1
